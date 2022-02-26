@@ -19,6 +19,7 @@ import static jframe.LoginPage.txt_username;
  */
 public class InicioSesion_Metodos {
     
+        //Validadcion de datos en base de datos.
         public static boolean validateLogin(){
         String name = txt_username.getText();
         String pwd = txt_password.getText();
@@ -36,7 +37,7 @@ public class InicioSesion_Metodos {
         
     }
         
-        
+        //Metodo para ingresar datos ya registrados, buscarlos en la base de datos y brindar una continuación al programa si se encuentran los datos.
         public static void login(){
         String name = txt_username.getText();
         String pwd = txt_password.getText();

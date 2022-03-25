@@ -25,14 +25,14 @@ import org.jfree.data.general.DefaultPieDataset;
  */
 public class Homepage_Metodos extends HomePage{
     
-    
+    //Metodo para mostrar datos en la tabla de estudiantes en la pagina inicial del programa
     public static void setStudentDetailsToTable(){
                 DefaultTableModel model;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root",""); //Ruta o link de nuestra base de dato
             Statement st = con.createStatement();
-            ResultSet rs =  st.executeQuery("select * from student_details");
+            ResultSet rs =  st.executeQuery("select * from student_details");//Selleccion de la tabla dentro de nuestra base de datos
             
            while(rs.next()){
             String studentId = rs.getString("student_id");
@@ -53,14 +53,14 @@ public class Homepage_Metodos extends HomePage{
     }
     
 
-    
+    //Metodo para mostrar datos en la tabla de libros en la pagina inicial del programa
     public static void setBookDetailsToTable(){
                 DefaultTableModel model;
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");//Ruta o link de nuestra base de dato
             Statement st = con.createStatement();
-            ResultSet rs =  st.executeQuery("select * from book_details");
+            ResultSet rs =  st.executeQuery("select * from book_details");//Selleccion de la tabla dentro de nuestra base de datos
             
            while(rs.next()){
             String bookId = rs.getString("book_id");
@@ -80,7 +80,7 @@ public class Homepage_Metodos extends HomePage{
         
     }
     
-    
+        //Metodo para llamar datos desde la base de datos y mostrarlas en las tarjetitas de la pagina inicial del programa
         public static void setDatoCards(){
         Statement st = null;
         ResultSet rs = null;
@@ -91,19 +91,19 @@ public class Homepage_Metodos extends HomePage{
         try{
             Connection con = DBConnection.getConnection();
             st = con.createStatement();
-            rs = st.executeQuery("select * from book_details");
+            rs = st.executeQuery("select * from book_details");//Selleccion de la tabla dentro de nuestra base de datos
             rs.last();
             lbl_noOFBooks.setText(Integer.toString(rs.getRow()));
             
-            rs = st.executeQuery("select * from student_details");
+            rs = st.executeQuery("select * from student_details");//Selleccion de la tabla dentro de nuestra base de datos
             rs.last();
             lbl_noOfStudent.setText(Integer.toString(rs.getRow()));
             
-            rs = st.executeQuery("select * from issue_book_details");
+            rs = st.executeQuery("select * from issue_book_details");//Selleccion de la tabla dentro de nuestra base de datos
             rs.last();
             lbl_IssueBooks.setText(Integer.toString(rs.getRow()));
             
-            rs = st.executeQuery("select * from issue_book_details where due_date < '"+todaysDate+"' and status = '"+"Pendiente"+"'");
+            rs = st.executeQuery("select * from issue_book_details where due_date < '"+todaysDate+"' and status = '"+"Pendiente"+"'");//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
             rs.last();
             lbl_defaulterList.setText(Integer.toString(rs.getRow()));
                 
@@ -114,14 +114,14 @@ public class Homepage_Metodos extends HomePage{
         
     }
     
-    
+    //Metodo para mostrar los datos en la grafica de pastel
     public static void showPieChart(){
         
       //crear dataset
       DefaultPieDataset barDataset = new DefaultPieDataset( );
       try{
           Connection con = DBConnection.getConnection();
-          String sql = "select book_name, count(*) as issue_count from issue_book_details group by book_id";
+          String sql = "select book_name, count(*) as issue_count from issue_book_details group by book_id"; //seleccion de verificación especifica en la tabla dentro de nuestra base de datos
           Statement st = con.createStatement();
           ResultSet rs = st.executeQuery(sql);
           

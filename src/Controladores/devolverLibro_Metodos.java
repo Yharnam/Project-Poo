@@ -19,7 +19,7 @@ public class devolverLibro_Metodos extends ReturnBook{
              int bookId = Integer.parseInt(txt_bookId.getText());
              try {
                  Connection con = DBConnection.getConnection();
-                 String sql = "update book_details set quantity = quantity +1 where book_id = ?";
+                 String sql = "update book_details set quantity = quantity +1 where book_id = ?";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
                  PreparedStatement pst = con.prepareStatement(sql);
                  pst.setInt(1, bookId);
                  
@@ -48,7 +48,7 @@ public class devolverLibro_Metodos extends ReturnBook{
          
          try{
              Connection con = DBConnection.getConnection();
-             String sql = "select * from issue_book_details where book_id = ? and student_id = ? and status = ?";
+             String sql = "select * from issue_book_details where book_id = ? and student_id = ? and status = ?";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
              
              PreparedStatement pst = con.prepareStatement(sql);
              pst.setInt(1, bookId);

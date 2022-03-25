@@ -3,8 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/jframe/LoginPage.java</file>
-            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/jframe/HomePage.java</file>
+            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/Controladores/DatosDeEstado_Metodos.java</file>
+            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/Controladores/Homepage_Metodos.java</file>
+            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/Controladores/devolverLibro_Metodos.java</file>
+            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/Controladores/Registro_Metodos.java</file>
+            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/Controladores/detalleLibros_Metodos.java</file>
+            <file>file:/C:/Users/tutu5/Desktop/Proyecto%20POO/src/Controladores/PedirLibro_Metodos.java</file>
         </group>
     </open-files>
 </project-private>

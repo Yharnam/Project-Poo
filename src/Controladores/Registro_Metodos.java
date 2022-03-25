@@ -65,7 +65,7 @@ public class Registro_Metodos extends SignupPage{
         
         try{
            Connection con =DBConnection.getConnection();
-           String sql = "insert into users(name, password, email, contact) values(?,?,?,?)";
+           String sql = "insert into users(name, password, email, contact) values(?,?,?,?)";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
            PreparedStatement pst = con.prepareStatement(sql);
            
 
@@ -97,9 +97,9 @@ public class Registro_Metodos extends SignupPage{
         boolean isExist = false;
         try{           
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");//Ruta o link de nuestra base de dato
             
-            PreparedStatement pst = con.prepareStatement("select * from users where name =");
+            PreparedStatement pst = con.prepareStatement("select * from users where name =");//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
             pst.setString(1, name);
             ResultSet rs = pst.executeQuery();
             if (rs.next()) {

@@ -23,9 +23,9 @@ public class detalleLibros_Metodos extends IssueBookDetails{
                 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");//Ruta o link de nuestra base de dato
             Statement st = con.createStatement();
-            ResultSet rs =  st.executeQuery("select * from issue_book_details where status = '"+"Pendiente"+"'");
+            ResultSet rs =  st.executeQuery("select * from issue_book_details where status = '"+"Pendiente"+"'");//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
             
            while(rs.next()){
             String id = rs.getString("id");

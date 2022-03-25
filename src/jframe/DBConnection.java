@@ -18,7 +18,7 @@ public class DBConnection {
     public static Connection getConnection(){
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root",""); //Ruta o link de nuestra base de dato
     }catch(Exception e){
         e.printStackTrace();
     }

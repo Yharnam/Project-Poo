@@ -23,16 +23,16 @@ import jframe.ViewAllRecord;
 public class DatosDeEstado_Metodos extends ViewAllRecord{
     
     
-    
+    //Metodo para recuperar los datos de los pedidos desde la base de dato
     public static void setIssueBookDetailsToTable(){
         
                 DefaultTableModel model;
                 
         try{
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root","");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/library_ms","root",""); //Ruta o link de nuestra base de dato
             Statement st = con.createStatement();
-            ResultSet rs =  st.executeQuery("select * from issue_book_details");
+            ResultSet rs =  st.executeQuery("select * from issue_book_details");//Selleccion de la tabla dentro de nuestra base de datos
             
            while(rs.next()){
             String id = rs.getString("id");
@@ -54,13 +54,14 @@ public class DatosDeEstado_Metodos extends ViewAllRecord{
         
     }
     
-    
+    //Metodo para limpiar tabla
     public static void clearTable(){
             DefaultTableModel model = (DefaultTableModel) tbl_IssueBookDetails.getModel();
             model.setRowCount(0);
             
         }
     
+    //Metodo para buscar libros que se hayan pedido dentro de las fechas establecidas por el usuario
     public static void search(){
         
                 DefaultTableModel model;
@@ -76,7 +77,7 @@ public class DatosDeEstado_Metodos extends ViewAllRecord{
         
         try{
             Connection con = DBConnection.getConnection();
-            String sql = "select * from issue_book_details where issue_date BETWEEN ? and ?";
+            String sql = "select * from issue_book_details where issue_date BETWEEN ? and ?"; //seleccion de verificación especifica en la tabla dentro de nuestra base de datos
             PreparedStatement pst = con.prepareStatement(sql);
             pst.setDate(1, fromDate);
             pst.setDate(2, toDate);

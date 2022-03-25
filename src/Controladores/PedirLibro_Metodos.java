@@ -16,13 +16,13 @@ import jframe.IssueBook;
  * @author tutu5
  */
 public class PedirLibro_Metodos extends IssueBook {
-    
+    //Metodo para tomar datos del libro desde la base de datos que el usuario escoja
     public static void getBookDetails (){
         int bookId = Integer.parseInt(txt_bookId.getText());
         
         try{
             Connection con = DBConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("select * from book_details where book_id =?");
+            PreparedStatement pst = con.prepareStatement("select * from book_details where book_id =?");//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
             pst.setInt(1, bookId);
             ResultSet rs = pst.executeQuery();
             
@@ -40,13 +40,13 @@ public class PedirLibro_Metodos extends IssueBook {
             e.printStackTrace();
         }
     }
-    
+        //Metodo para tomar datos del estudiante desde la base de datos que el usuario escoja
         public static void getStudentDetails (){
         int studentId = Integer.parseInt(txt_studentId.getText());
         
         try{
             Connection con = DBConnection.getConnection();
-            PreparedStatement pst = con.prepareStatement("select * from student_details where student_id =?");
+            PreparedStatement pst = con.prepareStatement("select * from student_details where student_id =?");//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
             pst.setInt(1, studentId);
             ResultSet rs = pst.executeQuery();
             
@@ -87,7 +87,7 @@ public class PedirLibro_Metodos extends IssueBook {
             
             try{
                 Connection con = DBConnection.getConnection();
-                String sql = "insert into issue_book_details(book_id,book_name,student_id,student_name,issue_date,due_date,status) values(?,?,?,?,?,?,?)";
+                String sql = "insert into issue_book_details(book_id,book_name,student_id,student_name,issue_date,due_date,status) values(?,?,?,?,?,?,?)";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
                 
                 PreparedStatement pst = con.prepareStatement(sql);
                 pst.setInt(1, bookId);
@@ -120,7 +120,7 @@ public class PedirLibro_Metodos extends IssueBook {
              int bookId = Integer.parseInt(txt_bookId.getText());
              try {
                  Connection con = DBConnection.getConnection();
-                 String sql = "update book_details set quantity = quantity -1 where book_id = ?";
+                 String sql = "update book_details set quantity = quantity -1 where book_id = ?";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
                  PreparedStatement pst = con.prepareStatement(sql);
                  pst.setInt(1, bookId);
                  
@@ -150,7 +150,7 @@ public class PedirLibro_Metodos extends IssueBook {
              
              try{
                  Connection con = DBConnection.getConnection();
-                 String sql = "select * from issue_book_details where book_id = ? and student_id = ? and status = ?";
+                 String sql = "select * from issue_book_details where book_id = ? and student_id = ? and status = ?";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
                  PreparedStatement pst = con.prepareStatement(sql);
                  pst.setInt(1, bookId);
                  pst.setInt(2, studentId);

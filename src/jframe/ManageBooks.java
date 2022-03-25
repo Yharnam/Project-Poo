@@ -11,6 +11,7 @@ import java.sql.Statement;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import static Controladores.ManejoLibros_Metodos.*;
+import javax.swing.JOptionPane;
 /**
  *
  * @author tutu5
@@ -24,7 +25,7 @@ public class ManageBooks extends javax.swing.JFrame {
     
     public ManageBooks() {
         initComponents();
-        setBookDeailsToTable();
+        setBookDetailsToTable();
     }
     
     
@@ -142,14 +143,29 @@ public class ManageBooks extends javax.swing.JFrame {
 
         rSMaterialButtonCircle1.setBackground(new java.awt.Color(0, 51, 51));
         rSMaterialButtonCircle1.setText("Eliminar");
+        rSMaterialButtonCircle1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonCircle1ActionPerformed(evt);
+            }
+        });
         jPanel1.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 670, 160, 70));
 
         rSMaterialButtonCircle2.setBackground(new java.awt.Color(0, 51, 51));
         rSMaterialButtonCircle2.setText("Agregar");
+        rSMaterialButtonCircle2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonCircle2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(rSMaterialButtonCircle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 670, 160, 70));
 
         rSMaterialButtonCircle3.setBackground(new java.awt.Color(0, 51, 51));
         rSMaterialButtonCircle3.setText("Actualizar");
+        rSMaterialButtonCircle3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rSMaterialButtonCircle3ActionPerformed(evt);
+            }
+        });
         jPanel1.add(rSMaterialButtonCircle3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 670, 160, 70));
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
@@ -165,7 +181,7 @@ public class ManageBooks extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 830));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelexit.setFont(new java.awt.Font("Serif", 1, 36)); // NOI18N
@@ -186,8 +202,14 @@ public class ManageBooks extends javax.swing.JFrame {
                 "ID libro", "Nombre", "Autor", "Cantidad"
             }
         ));
-        tbl_bookDetails.setColorBackgoundHead(new java.awt.Color(102, 0, 102));
-        tbl_bookDetails.setColorFilasBackgound2(new java.awt.Color(255, 255, 255));
+        tbl_bookDetails.setToolTipText("");
+        tbl_bookDetails.setColorBackgoundHead(new java.awt.Color(51, 51, 51));
+        tbl_bookDetails.setColorFilasBackgound1(new java.awt.Color(153, 153, 153));
+        tbl_bookDetails.setColorFilasBackgound2(new java.awt.Color(153, 153, 153));
+        tbl_bookDetails.setColorFilasForeground1(new java.awt.Color(255, 255, 255));
+        tbl_bookDetails.setColorFilasForeground2(new java.awt.Color(255, 255, 255));
+        tbl_bookDetails.setColorForegroundHead(new java.awt.Color(204, 204, 204));
+        tbl_bookDetails.setColorSelBackgound(new java.awt.Color(102, 102, 102));
         tbl_bookDetails.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         tbl_bookDetails.setFuenteFilas(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         tbl_bookDetails.setFuenteFilasSelect(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
@@ -200,13 +222,13 @@ public class ManageBooks extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(tbl_bookDetails);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 850, 320));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 920, 320));
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddNewBookIcons/icons8_Books_52px_1.png"))); // NOI18N
         jLabel1.setText("   Manejo de Libros");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, -1, -1));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(0, 51, 51));
 
@@ -221,7 +243,7 @@ public class ManageBooks extends javax.swing.JFrame {
             .addGap(0, 5, Short.MAX_VALUE)
         );
 
-        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 429, 5));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 120, 429, 5));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 1150, 830));
 
@@ -250,13 +272,45 @@ public class ManageBooks extends javax.swing.JFrame {
     }//GEN-LAST:event_txt_authorNameFocusLost
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        // TODO add your handling code here:
+       HomePage home = new HomePage();
+       home.setVisible(true);
+       dispose();
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void tbl_bookDetailsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbl_bookDetailsMouseClicked
         //Se llama el algoritmo para seleccionar elementos de tabla y mostar en los cuadros de textos.
         ClickTable();       
     }//GEN-LAST:event_tbl_bookDetailsMouseClicked
+
+    private void rSMaterialButtonCircle2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2ActionPerformed
+        if (addbook() == true) {
+            JOptionPane.showMessageDialog(this,"Libro Agregado");
+            clearTable();
+            setBookDetailsToTable();
+        }else{
+            JOptionPane.showMessageDialog(this,"Fallo al agregaro");
+        }
+    }//GEN-LAST:event_rSMaterialButtonCircle2ActionPerformed
+
+    private void rSMaterialButtonCircle3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle3ActionPerformed
+                if (updateBooks() == true) {
+            JOptionPane.showMessageDialog(this,"Libro Actualizado");
+            clearTable();
+            setBookDetailsToTable();
+        }else{
+            JOptionPane.showMessageDialog(this,"Fallo al Actualizar");
+        }
+    }//GEN-LAST:event_rSMaterialButtonCircle3ActionPerformed
+
+    private void rSMaterialButtonCircle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1ActionPerformed
+            if (deleteBook() == true) {
+            JOptionPane.showMessageDialog(this,"Libro Eliminado");
+            clearTable();
+            setBookDetailsToTable();
+        }else{
+            JOptionPane.showMessageDialog(this,"Fallo al Eliminar");
+        }
+    }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -83,7 +83,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_Secure_50px.png"))); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 360, -1, -1));
 
-        txt_username.setBackground(new java.awt.Color(191, 154, 51));
+        txt_username.setBackground(new java.awt.Color(102, 102, 102));
         txt_username.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txt_username.setPlaceholder("Insert Username");
         txt_username.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -93,7 +93,7 @@ public class LoginPage extends javax.swing.JFrame {
         });
         jPanel2.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 280, 320, -1));
 
-        txt_password.setBackground(new java.awt.Color(191, 154, 51));
+        txt_password.setBackground(new java.awt.Color(102, 102, 102));
         txt_password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
         txt_password.setPlaceholder("Insert Password");
         jPanel2.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 380, 320, -1));
@@ -105,16 +105,21 @@ public class LoginPage extends javax.swing.JFrame {
                 rSMaterialButtonCircle1ActionPerformed(evt);
             }
         });
-        jPanel2.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 480, 300, 80));
+        jPanel2.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 480, 300, 80));
 
         rSMaterialButtonCircle2.setBackground(new java.awt.Color(51, 0, 0));
         rSMaterialButtonCircle2.setText("SIGNUP");
+        rSMaterialButtonCircle2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rSMaterialButtonCircle2MouseClicked(evt);
+            }
+        });
         rSMaterialButtonCircle2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rSMaterialButtonCircle2ActionPerformed(evt);
             }
         });
-        jPanel2.add(rSMaterialButtonCircle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 580, 300, 80));
+        jPanel2.add(rSMaterialButtonCircle2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 580, 300, 80));
 
         jLabel26.setFont(new java.awt.Font("Serif", 1, 24)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(255, 255, 255));
@@ -128,7 +133,8 @@ public class LoginPage extends javax.swing.JFrame {
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/6215ad6f30d8f.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1044, 896));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1430, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1530, 830));
 
@@ -153,6 +159,12 @@ public class LoginPage extends javax.swing.JFrame {
          login();   
         }
     }//GEN-LAST:event_rSMaterialButtonCircle1ActionPerformed
+
+    private void rSMaterialButtonCircle2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle2MouseClicked
+        SignupPage SignupPage = new SignupPage();
+        SignupPage.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_rSMaterialButtonCircle2MouseClicked
 
     /**
      * @param args the command line arguments

@@ -17,7 +17,7 @@ import static jframe.LoginPage.txt_username;
  *
  * @author tutu5
  */
-public class InicioSesion_Metodos {
+public class InicioSesion_Metodos extends HomePage{
     
         //Validadcion de datos en base de datos.
         public static boolean validateLogin(){

@@ -13,16 +13,14 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import jframe.DBConnection;
 import jframe.LoginPage;
-import static jframe.SignupPage.txt_contact;
-import static jframe.SignupPage.txt_email;
-import static jframe.SignupPage.txt_password;
-import static jframe.SignupPage.txt_username;
+import jframe.SignupPage;
+
 
 /**
  *
  * @author tutu5
  */
-public class Registro_Metodos {
+public class Registro_Metodos extends SignupPage{
     
     
     // Metodo para realizar la verificación de datos en el panel de registro.

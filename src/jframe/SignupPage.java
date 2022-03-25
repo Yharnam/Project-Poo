@@ -153,6 +153,11 @@ public class SignupPage extends javax.swing.JFrame {
 
         rSMaterialButtonCircle1.setBackground(new java.awt.Color(0, 0, 0));
         rSMaterialButtonCircle1.setText("LOGIN");
+        rSMaterialButtonCircle1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                rSMaterialButtonCircle1MouseClicked(evt);
+            }
+        });
         jPanel2.add(rSMaterialButtonCircle1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 660, 250, 80));
 
         rSMaterialButtonCircle2.setBackground(new java.awt.Color(102, 102, 102));
@@ -204,6 +209,12 @@ public class SignupPage extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "user name already in use");
         }
     }//GEN-LAST:event_txt_usernameFocusLost
+
+    private void rSMaterialButtonCircle1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rSMaterialButtonCircle1MouseClicked
+        LoginPage LoginPage = new LoginPage();
+        LoginPage.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_rSMaterialButtonCircle1MouseClicked
 
     /**
      * @param args the command line arguments

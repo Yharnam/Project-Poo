@@ -135,6 +135,7 @@ public class HomePage extends javax.swing.JFrame {
         panelPieChart = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
@@ -517,6 +518,11 @@ public class HomePage extends javax.swing.JFrame {
         jLabel31.setForeground(new java.awt.Color(255, 255, 255));
         jLabel31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/adminIcons/icons8_Exit_26px_2.png"))); // NOI18N
         jLabel31.setText("    Logout");
+        jLabel31.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel31MouseClicked(evt);
+            }
+        });
         jPanel28.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
         jPanel29.setBackground(new java.awt.Color(51, 51, 51));
@@ -787,7 +793,7 @@ public class HomePage extends javax.swing.JFrame {
 
         getContentPane().add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 1570, 960));
 
-        setSize(new java.awt.Dimension(1919, 1030));
+        setSize(new java.awt.Dimension(1905, 1023));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -892,6 +898,12 @@ public class HomePage extends javax.swing.JFrame {
         DefaulterList.setVisible(true);
         dispose();
     }//GEN-LAST:event_jLabel20MouseClicked
+
+    private void jLabel31MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel31MouseClicked
+        LoginPage LoginPage = new LoginPage();
+        LoginPage.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jLabel31MouseClicked
 
     /**
      * @param args the command line arguments

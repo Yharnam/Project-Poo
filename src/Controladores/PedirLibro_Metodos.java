@@ -15,7 +15,7 @@ import jframe.IssueBook;
  *
  * @author tutu5
  */
-public class PedirLibro_Metodos extends IssueBook {
+public class PedirLibro_Metodos extends  IssueBook{
     //Metodo para tomar datos del libro desde la base de datos que el usuario escoja
     public static void getBookDetails (){
         int bookId = Integer.parseInt(txt_bookId.getText());

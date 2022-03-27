@@ -351,7 +351,7 @@ public class IssueBook extends javax.swing.JFrame {
         }else{
             
             if (isAlreadyIssued() == false) {
-                JOptionPane.showMessageDialog(this, "Libro no disponible");
+                
                 if (issueBook() == true) {
                     JOptionPane.showMessageDialog(this, "Libro pedido correctamente");
                     updateBookCount();

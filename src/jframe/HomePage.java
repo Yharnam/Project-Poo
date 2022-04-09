@@ -133,6 +133,7 @@ public class HomePage extends javax.swing.JFrame {
         tbl_bookDetails = new rojerusan.RSTableMetro();
         jLabel48 = new javax.swing.JLabel();
         panelPieChart = new javax.swing.JPanel();
+        jLabel39 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -791,6 +792,14 @@ public class HomePage extends javax.swing.JFrame {
         panelPieChart.setLayout(new java.awt.BorderLayout());
         jPanel36.add(panelPieChart, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 340, 610, 570));
 
+        jLabel39.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/calculadora.png"))); // NOI18N
+        jLabel39.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel39MouseClicked(evt);
+            }
+        });
+        jPanel36.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
         getContentPane().add(jPanel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 1570, 960));
 
         setSize(new java.awt.Dimension(1905, 1023));
@@ -905,6 +914,12 @@ public class HomePage extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel31MouseClicked
 
+    private void jLabel39MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel39MouseClicked
+        MiniCalculadora MiniCalculadora = new MiniCalculadora();
+        MiniCalculadora.setVisible(true);
+
+    }//GEN-LAST:event_jLabel39MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -973,6 +988,7 @@ public class HomePage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel42;

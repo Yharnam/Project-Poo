@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import static jframe.DBConnection.con;
 import static Controladores.Registro_Metodos.*;
+import com.sun.glass.events.KeyEvent;
 
 /**
  *
@@ -129,6 +130,11 @@ public class SignupPage extends javax.swing.JFrame {
                 txt_usernameFocusLost(evt);
             }
         });
+        txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usernameKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 150, -1, -1));
 
         txt_password.setBackground(new java.awt.Color(0, 51, 51));
@@ -149,6 +155,11 @@ public class SignupPage extends javax.swing.JFrame {
         txt_email.setPhColor(new java.awt.Color(255, 255, 255));
         txt_email.setPlaceholder("Insert email");
         txt_email.setSelectedTextColor(new java.awt.Color(255, 255, 255));
+        txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_emailKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 350, -1, -1));
 
         rSMaterialButtonCircle1.setBackground(new java.awt.Color(0, 0, 0));
@@ -216,6 +227,21 @@ public class SignupPage extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_rSMaterialButtonCircle1MouseClicked
 
+    private void txt_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyTyped
+        char c=evt.getKeyChar();
+
+        if(!(Character.isAlphabetic(c) ||  (c==KeyEvent.VK_BACKSPACE)||  c==KeyEvent.VK_DELETE ))
+        evt.consume();
+    }//GEN-LAST:event_txt_usernameKeyTyped
+
+    private void txt_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_emailKeyTyped
+
+    
+    
+    
+    
     /**
      * @param args the command line arguments
      */

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import static jframe.DBConnection.con;
 import static Controladores.InicioSesion_Metodos.*;
+import com.sun.glass.events.KeyEvent;
 
 /**
  *
@@ -41,10 +42,10 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         txt_username = new app.bolivia.swing.JCTextField();
-        txt_password = new app.bolivia.swing.JCTextField();
         rSMaterialButtonCircle1 = new rojerusan.RSMaterialButtonCircle();
         rSMaterialButtonCircle2 = new rojerusan.RSMaterialButtonCircle();
         jLabel26 = new javax.swing.JLabel();
+        txt_password = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,7 +76,7 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel15.setFont(new java.awt.Font("Times New Roman", 1, 17)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Password");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 350, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 340, -1, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_Account_50px.png"))); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 260, -1, -1));
@@ -91,12 +92,12 @@ public class LoginPage extends javax.swing.JFrame {
                 txt_usernameFocusLost(evt);
             }
         });
+        txt_username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_usernameKeyTyped(evt);
+            }
+        });
         jPanel2.add(txt_username, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 280, 320, -1));
-
-        txt_password.setBackground(new java.awt.Color(102, 102, 102));
-        txt_password.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 2, 0, new java.awt.Color(255, 255, 255)));
-        txt_password.setPlaceholder("Insert Password");
-        jPanel2.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 380, 320, -1));
 
         rSMaterialButtonCircle1.setBackground(new java.awt.Color(255, 204, 204));
         rSMaterialButtonCircle1.setText("LOGIN");
@@ -130,6 +131,9 @@ public class LoginPage extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(1370, 10, 40, 20));
+
+        txt_password.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel2.add(txt_password, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 310, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/6215ad6f30d8f.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -165,6 +169,13 @@ public class LoginPage extends javax.swing.JFrame {
         SignupPage.setVisible(true);
         dispose();
     }//GEN-LAST:event_rSMaterialButtonCircle2MouseClicked
+
+    private void txt_usernameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_usernameKeyTyped
+        char c=evt.getKeyChar();
+
+        if(!(Character.isAlphabetic(c) ||  (c==KeyEvent.VK_BACKSPACE)||  c==KeyEvent.VK_DELETE ))
+        evt.consume();
+    }//GEN-LAST:event_txt_usernameKeyTyped
 
     /**
      * @param args the command line arguments
@@ -220,7 +231,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private rojerusan.RSMaterialButtonCircle rSMaterialButtonCircle1;
     private rojerusan.RSMaterialButtonCircle rSMaterialButtonCircle2;
-    public static app.bolivia.swing.JCTextField txt_password;
+    public static javax.swing.JPasswordField txt_password;
     public static app.bolivia.swing.JCTextField txt_username;
     // End of variables declaration//GEN-END:variables
 }

@@ -41,12 +41,13 @@ public class Registro_Metodos extends SignupPage{
             return false;
         }
         
-        if (email.equals("") || !email.matches("^.+@.+\\..+$")) {
+        if (email.equals("") || !email.matches("^(?=.{1,64}@)[\\p{L}0-9_-]+(\\.[\\p{L}0-9_-]+)*@" 
+        + "[^-][\\p{L}0-9-]+(\\.[\\p{L}0-9-]+)*(\\.[\\p{L}]{2,})$")) {
             JOptionPane.showMessageDialog(txt_email, "Please enter valid email");
             return false;
         }
         
-        if (contact.equals("")) {
+        if (contact.equals("") || !contact.matches("^[0-9]*$")) {
             JOptionPane.showMessageDialog(txt_contact, "Please enter contact No");
             return false;
         }
@@ -68,7 +69,6 @@ public class Registro_Metodos extends SignupPage{
            String sql = "insert into users(name, password, email, contact) values(?,?,?,?)";//seleccion de verificación especifica en la tabla dentro de nuestra base de datos
            PreparedStatement pst = con.prepareStatement(sql);
            
-
            pst.setString(1, name);
            pst.setString(2, pwd);
            pst.setString(3, email);
